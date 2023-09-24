@@ -17,27 +17,25 @@ public class GuessingGame {
 		{
 			System.out.println("Guess my name (type stop to exit)");
 			userInput = console.nextLine();
-			if (userInput.contentEquals("Olivia")||userInput.contentEquals("Ava")
+			
+			if (!userInput.contentEquals("stop")&& success !=3) 
+			{	
+					attempts +=1;
+				if (userInput.contentEquals("Olivia")||userInput.contentEquals("Ava")
 					||userInput.contentEquals("Emma")) 
-			{
-				attempts +=1;
-				success +=1; 
-				
-				if(success == 3) 
-				{	
-					
-					System.out.println("Congratulations!"+ "\n"+"You guessed 3 times.");
-				}
-				
-			else if (!userInput.contentEquals("stop")) 
-			{
-					
-				attempts +=1;
-			}	
+				{
+					success +=1; 
 								
-			} 
+				}
+										
+				
+			} else 
+			{
+				
+				System.out.println("Congratulations!"+ "\n"+"You guessed "+attempts+ " times.");
+			}
 						
-		} while (!userInput.equals("stop")); 
+		} while (!userInput.equals("stop")||success ==3); 
 		
 
 	}
